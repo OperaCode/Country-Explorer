@@ -1,12 +1,18 @@
-# React + Vite
+Country Explorer is a React + Tailwind CSS application that lets users search for countries by name or filter them by region. It displays detailed country data fetched from the REST Countries API, including flags, capitals, regions, populations, languages, currencies, and timezones. Each country has a dedicated detail page with a fun fact to enhance learning.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🔎 Features:
 
-Currently, two official plugins are available:
+Search countries by name
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Filter countries by region
 
-## Expanding the ESLint configuration
+View detailed information on a country’s page
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Random fun facts for each country
+
+Light and dark mode toggle
+
+Fully responsive and accessible UI
+
+🚀 Built with: React.js, Tailwind CSS, Axios, React Router, Lucide Icons, React Toastify.
+
