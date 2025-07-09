@@ -28,7 +28,7 @@ function LandingPage() {
             type="button"
             onClick={() => navigate("/home")}
             className="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
-            aria-label="Get started with Country Explorer"
+            
           >
             <Globe size={20} />
             Get Started
@@ -37,9 +37,7 @@ function LandingPage() {
             type="button"
             onClick={toggleTheme}
             className="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
-            aria-label={
-              darkMode ? "Switch to light mode" : "Switch to dark mode"
-            }
+            
           >
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
             {darkMode ? "Light Mode" : "Dark Mode"}
@@ -56,7 +54,7 @@ function LandingPage() {
             className={`mx-auto mb-6 ${
               darkMode ? "text-white" : "text-blue-600"
             } drop-shadow-lg`}
-            aria-hidden="true"
+            
           />
           {/* <h2 className="inline-block animate-spin-slow text-8xl ">🌍</h2> */}
           {/* Title */}
@@ -83,14 +81,14 @@ function LandingPage() {
               <Search
                 size={24}
                 className="text-gray-400 ml-2"
-                aria-hidden="true"
+                
               />
               <input
                 type="text"
                 placeholder="Search for a country..."
                 disabled
                 className="w-full bg-transparent text-white placeholder-gray-400 px-3 py-2 focus:outline-none"
-                aria-label="Search teaser (disabled)"
+               
               />
             </div>
           </div>
