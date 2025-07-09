@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Globe, Sun, Moon, Search } from "lucide-react";
+import { Globe, Sun, Moon, Search, MapPinned } from "lucide-react";
 
 import useTheme from "../hooks/useTheme";
 
@@ -18,7 +18,7 @@ function LandingPage() {
       } text-${darkMode ? "white" : "gray-800"} transition-colors duration-300`}
     >
       {/* Header */}
-      <header className="w-full py-4 px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
+      <header className="w-full py-6 px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
         <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
           <Globe size={24} />
           Country Explorer
@@ -51,21 +51,21 @@ function LandingPage() {
       <main className="flex flex-col items-center justify-center flex-grow px-4 text-center animate-fadeIn">
         <div className="max-w-4xl">
           {/* Hero Icon */}
-          <Globe
-            size={64}
+          <MapPinned
+            size={80}
             className={`mx-auto mb-6 ${
               darkMode ? "text-white" : "text-blue-600"
-            } drop-shadow-lg animate-spin-slow`}
+            } drop-shadow-lg`}
             aria-hidden="true"
           />
-
+          {/* <h2 className="inline-block animate-spin-slow text-8xl ">🌍</h2> */}
           {/* Title */}
           <h1
             className={`text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg ${
               darkMode ? "text-white" : "text-gray-800"
             }`}
           >
-            Explore the World with Country Explorer 🌍
+            Explore the World with Country Explorer <span className="inline-block animate-spin-slow  text-6xl">🌍</span>
           </h1>
 
           {/* Description */}
@@ -74,8 +74,7 @@ function LandingPage() {
               darkMode ? "text-white opacity-90" : "text-gray-700 opacity-90"
             }`}
           >
-            Discover countries, their flags, capitals, populations, and more in
-            a seamless, interactive experience.
+           Discover countries, their flags, capitals, populations, and more – now with fascinating fun facts for each country – all in a seamless, interactive experience.
           </p>
 
           {/* Search Bar Teaser */}

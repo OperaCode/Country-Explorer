@@ -60,7 +60,7 @@ const CountryCard = () => {
     <div className={`min-h-screen flex flex-col ${darkMode ? "bg-gradient-to-br from-gray-800 via-blue-900 to-gray-900 text-white" : "bg-gradient-to-br from-blue-100 via-white to-blue-300 text-gray-800"} transition-colors duration-300`}>
       
       {/* Header */}
-      <header className="w-full py-4 px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
+      <header className="w-full py-6 border px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
         <button
           onClick={() => navigate(-1)}
           className="flex items-center gap-2 text-blue-600 hover:underline font-medium transition"

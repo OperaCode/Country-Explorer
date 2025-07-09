@@ -122,7 +122,7 @@ const Home = () => {
       } transition-colors duration-300`}
     >
       {/* Header */}
-      <header className="w-full py-4 px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
+      <header className="w-full py-6 px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
         <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
           <Globe
             size={24}
