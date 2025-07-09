@@ -2,6 +2,7 @@ import React, { useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { motion } from "motion/react";
 import useTheme from '../hooks/useTheme';
 import {
   Globe,
@@ -141,7 +142,11 @@ const Home = () => {
       </header>
 
       {/* Main Content */}
-      <main className="flex flex-col items-center flex-grow p-6 max-w-5xl mx-auto w-full">
+      <motion.main 
+      initial={{ scale:0 }}
+      whileInView={{ scale:1 }}
+      transition={{ duration:0.8,  }}
+      className="flex flex-col items-center flex-grow p-6 max-w-5xl mx-auto w-full">
         {/* Hero Section */}
         <section className="text-center mb-8 animate-fadeIn">
           <Map
@@ -151,18 +156,29 @@ const Home = () => {
             } animate-spin-slow`}
            
           />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">
+          <motion.h1 
+          initial={{ y:-30, opacity:0 }}
+          whileInView={{ y:0, opacity:1 }}
+          transition={{ duration:0.8, delay:0.5 }}
+          className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">
             Search Countries Worldwide
-          </h1>
-          <p className="text-lg sm:text-xl mt-2 max-w-lg mx-auto opacity-80">
+          </motion.h1>
+          <motion.p 
+          initial={{ opacity:0 }}
+          whileInView={{ opacity:1 }}
+          transition={{ duration:0.6, delay:0.7 }}
+          className="text-lg sm:text-xl mt-2 max-w-lg mx-auto opacity-80">
             Find detailed information about any country, from flags to
             populations.
-          </p>
+          </motion.p>
         </section>
 
         {/* Region Filter */}
         <div className="w-full max-w-md mb-4">
-          <select
+          <motion.select
+          initial={{x:50,opacity:0}}
+          whileInView={{x:0,opacity:1}}
+          transition={{delay:1.1, duration:0.6}}
             value={region}
             onChange={handleRegionChange}
             className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -173,11 +189,14 @@ const Home = () => {
                 {r}
               </option>
             ))}
-          </select>
+          </motion.select>
         </div>
 
         {/* Search Form */}
-        <form
+        <motion.form
+        initial={{opacity:0}}
+        whileInView={{opacity:1}}
+        transition={{delay:0.9, duration:0.5}}
           onSubmit={handleSearch}
           className="w-full max-w-md mx-auto mb-8 animate-scaleIn"
         >
@@ -191,7 +210,10 @@ const Home = () => {
               className={`ml-2 ${darkMode ? "text-gray-300" : "text-gray-500"}`}
               
             />
-            <input
+            <motion.input
+            initial={{x:-50,opacity:0}}
+            whileInView={{x:0,opacity:1}}
+            transition={{delay:1.1, duration:0.6}}
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -221,7 +243,7 @@ const Home = () => {
           >
             Search
           </button>
-        </form>
+        </motion.form>
 
         {/* Results */}
         {loading && (
@@ -249,7 +271,11 @@ const Home = () => {
         )}
 
         {countries.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 w-full animate-fadeIn">
+          <motion.div
+          initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.9, duration: 0.6 }}
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-6 w-full animate-fadeIn">
             {countries.map((country) => (
               <div
                 key={country.cca3}
@@ -292,7 +318,7 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
         )}
 
         {!loading && !error && countries.length === 0 && !search && (
@@ -300,7 +326,7 @@ const Home = () => {
             Start by searching for a country above!
           </p>
         )}
-      </main>
+      </motion.main>
 
       {/* Footer */}
       <footer className="w-full py-4 px-6 text-center bg-white/10 backdrop-blur-md">

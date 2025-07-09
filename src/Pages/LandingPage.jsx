@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Globe, Sun, Moon, Search, MapPinned } from "lucide-react";
-
+import { motion } from "motion/react";
 import useTheme from "../hooks/useTheme";
 
 function LandingPage() {
@@ -48,7 +48,11 @@ function LandingPage() {
 
       {/* Hero Section */}
       <main className="flex flex-col items-center justify-center flex-grow px-4 text-center animate-fadeIn">
-        <div className="max-w-4xl">
+        <motion.div 
+         initial={{ scale:0 }}
+         whileInView={{ scale:1 }}
+         transition={{ duration:0.8,  }}
+        className="max-w-4xl">
           {/* Hero Icon */}
           <MapPinned
             size={80}
@@ -59,22 +63,28 @@ function LandingPage() {
           />
           
           {/* Title */}
-          <h1
+          <motion.h1
+          initial={{ y:-20, opacity:0 }}
+          whileInView={{ y:0, opacity:1 }}
+          transition={{ duration:0.6, delay:0.3 }}
             className={`text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg ${
               darkMode ? "text-white" : "text-gray-800"
             }`}
           >
             Explore the World with Country Explorer <span className="inline-block animate-spin-slow  text-6xl">🌍</span>
-          </h1>
+          </motion.h1>
 
           {/* Description */}
-          <p
+          <motion.p
+          initial={{ opacity:0 }}
+          whileInView={{ opacity:1 }}
+          transition={{ duration:0.6, delay:0.7 }}
             className={`text-lg sm:text-xl md:text-2xl mb-8 max-w-lg mx-auto ${
               darkMode ? "text-white opacity-90" : "text-gray-700 opacity-90"
             }`}
           >
            Discover countries, their flags, capitals, populations, and more – now with fascinating fun facts for each country – all in a seamless, interactive experience.
-          </p>
+          </motion.p>
 
           {/* Search Bar Animation */}
           <div className="relative w-full max-w-md mx-auto mb-8">
@@ -107,7 +117,7 @@ function LandingPage() {
             <Globe size={20} />
             Start Exploring
           </button>
-        </div>
+        </motion.div>
       </main>
 
       {/* Footer */}
