@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useTheme from '../hooks/useTheme';
-
-
 import {
   Globe,
   Sun,
@@ -26,24 +24,11 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  // const [darkMode, setDarkMode] = useState(false);
+ 
   const [region, setRegion] = useState("");
   const { darkMode, toggleTheme } = useTheme(); 
 
-  // Initialize theme from localStorage
-  // useEffect(() => {
-  //   const savedTheme = localStorage.getItem("theme") || "light";
-  //   setDarkMode(savedTheme === "dark");
-  // }, []);
-
-  // Toggle theme and save to localStorage
-  // const toggleTheme = () => {
-  //   const newTheme = !darkMode ? "dark" : "light";
-  //   setDarkMode(!darkMode);
-  //   localStorage.setItem("theme", newTheme);
-    
-  // };
-
+  // handle region selections
   const handleRegionChange = async (e) => {
     const selectedRegion = e.target.value;
     setRegion(selectedRegion);
@@ -164,7 +149,7 @@ const Home = () => {
             className={`mx-auto mb-4 ${
               darkMode ? "text-white" : "text-blue-600"
             } animate-spin-slow`}
-            aria-hidden="true"
+           
           />
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">
             Search Countries Worldwide
@@ -204,7 +189,7 @@ const Home = () => {
             <Search
               size={24}
               className={`ml-2 ${darkMode ? "text-gray-300" : "text-gray-500"}`}
-              aria-hidden="true"
+              
             />
             <input
               type="text"
@@ -212,14 +197,14 @@ const Home = () => {
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search for a country..."
               className="w-full bg-transparent px-3 py-2 focus:outline-none"
-              aria-label="Search for a country"
+              
             />
             {search && (
               <button
                 type="button"
                 onClick={() => setSearch("")}
                 className="mr-2"
-                aria-label="Clear search"
+                
               >
                 <X size={20} />
               </button>
@@ -232,13 +217,13 @@ const Home = () => {
                 ? "bg-white text-blue-600 hover:bg-blue-100"
                 : "bg-blue-600 text-white hover:bg-blue-700"
             }`}
-            aria-label="Search countries"
+            
           >
             Search
           </button>
         </form>
 
-        {/* Feedback and Results */}
+        {/* Results */}
         {loading && (
           <div className="flex flex-col items-center mt-8 animate-pulse">
             <Loader2

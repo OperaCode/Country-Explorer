@@ -6,7 +6,6 @@ import useTheme from "../hooks/useTheme";
 
 function LandingPage() {
   const navigate = useNavigate();
-
   const { darkMode, toggleTheme } = useTheme();
 
   return (
@@ -23,6 +22,8 @@ function LandingPage() {
           <Globe size={24} />
           Country Explorer
         </h1>
+
+        {/* Nav buttons */}
         <nav className="flex md:gap-2">
           <button
             type="button"
@@ -56,7 +57,7 @@ function LandingPage() {
             } drop-shadow-lg`}
             
           />
-          {/* <h2 className="inline-block animate-spin-slow text-8xl ">🌍</h2> */}
+          
           {/* Title */}
           <h1
             className={`text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 tracking-tight drop-shadow-lg ${
@@ -75,7 +76,7 @@ function LandingPage() {
            Discover countries, their flags, capitals, populations, and more – now with fascinating fun facts for each country – all in a seamless, interactive experience.
           </p>
 
-          {/* Search Bar Teaser */}
+          {/* Search Bar Animation */}
           <div className="relative w-full max-w-md mx-auto mb-8">
             <div className="flex items-center bg-white/20 rounded-lg p-2 animate-pulse-slow">
               <Search
@@ -93,7 +94,7 @@ function LandingPage() {
             </div>
           </div>
 
-          {/* CTA Button */}
+          {/* Button */}
           <button
             onClick={() => navigate("/home")}
             className={`flex items-center cursor-pointer gap-2 mx-auto px-8 py-4 rounded-full font-semibold shadow-xl hover:scale-105 transform transition duration-300 ${
@@ -101,7 +102,7 @@ function LandingPage() {
                 ? "bg-white text-blue-600 hover:bg-blue-100"
                 : "bg-blue-600 text-white hover:bg-blue-700"
             }`}
-            aria-label="Start exploring countries"
+            
           >
             <Globe size={20} />
             Start Exploring
