@@ -60,10 +60,10 @@ const CountryCard = () => {
     <div className={`min-h-screen flex flex-col ${darkMode ? "bg-gradient-to-br from-gray-800 via-blue-900 to-gray-900 text-white" : "bg-gradient-to-br from-blue-100 via-white to-blue-300 text-gray-800"} transition-colors duration-300`}>
       
       {/* Header */}
-      <header className="w-full py-6 border px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
+      <header className="w-full py-6 px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
         <button
           onClick={() => navigate(-1)}
-          className="flex items-center gap-2 text-blue-600 hover:underline font-medium transition"
+         className="flex items-center cursor-pointer gap-2 px-4 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
         >
           <ArrowLeft size={20} /> Back
         </button>
@@ -74,8 +74,8 @@ const CountryCard = () => {
       </header>
 
       {/* Main content */}
-      <main className="flex-grow flex items-center justify-center p-6 animate-fadeIn">
-        <div className="bg-white/30 dark:bg-gray-800/50 backdrop-blur-md rounded-2xl shadow-2xl max-w-2xl w-full p-8 transform transition duration-500 hover:scale-[1.02]">
+      <main className="flex-grow flex items-center justify-center p-4 animate-fadeIn">
+        <div className="bg-white/30 dark:bg-gray-600/50 backdrop-blur-md rounded-2xl shadow-2xl max-w-xl w-full p-6 transform transition duration-500 hover:scale-[1.02]">
           <div className="flex flex-col items-center mb-6">
             <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md">
               <img
