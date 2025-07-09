@@ -19,15 +19,15 @@ function LandingPage() {
     >
       {/* Header */}
       <header className="w-full py-6 px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
-        <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
+        <h1 className="md:text-2xl text-xl font-bold tracking-tight flex items-center gap-2">
           <Globe size={24} />
           Country Explorer
         </h1>
-        <nav className="flex gap-4">
+        <nav className="flex md:gap-2">
           <button
             type="button"
             onClick={() => navigate("/home")}
-            className="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
+            className="cursor-pointer flex items-center gap-1 px-1 py-2 text-xs md:text-sm rounded-lg font-medium  hover:bg-white/20 transition duration-300"
             
           >
             <Globe size={20} />
@@ -36,11 +36,11 @@ function LandingPage() {
           <button
             type="button"
             onClick={toggleTheme}
-            className="cursor-pointer flex items-center gap-2 px-4 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
+            className="cursor-pointer flex items-center gap-1 px-2 py-2 rounded-lg font-medium text-xs md:text-sm hover:bg-white/20 transition duration-300"
             
           >
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            {darkMode ? "Light Mode" : "Dark Mode"}
+            {darkMode ? "Light" : "Dark"}
           </button>
         </nav>
       </header>

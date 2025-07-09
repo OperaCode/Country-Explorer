@@ -16,6 +16,7 @@ import {
   MapPin,
   Users,
   Globe2,
+  LogOut,
 } from "lucide-react";
 
 const regions = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
@@ -123,26 +124,27 @@ const Home = () => {
     >
       {/* Header */}
       <header className="w-full py-6 px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
-        <h1 className="text-2xl font-bold tracking-tight flex items-center gap-2">
+        <h1 className="md:text-2xl text-xl font-bold tracking-tight flex items-center gap-2">
           <Globe
             size={24}
             className={darkMode ? "text-white" : "text-blue-600"}
           />
           Country Explorer
         </h1>
-        <nav className="flex gap-4">
+        <nav className="flex md:gap-2">
           
           <button
             type="button"
             onClick={() => navigate("/")}
-            className="flex items-center cursor-pointer gap-2 px-4 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
+            className="flex items-center cursor-pointer gap-1 md:gap-2 px-2 py-2 rounded-lg font-medium w-full  hover:bg-white/20 transition duration-300"
           >
-            Exit App
+            <LogOut size={20}/>
+            Exit
           </button>
           <button
             type="button"
             onClick={toggleTheme}
-            className="flex items-center cursor-pointer gap-2 px-4 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
+            className="flex items-center cursor-pointer gap-1 md:gap-2 px-2 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
             aria-label={
               darkMode ? "Switch to light mode" : "Switch to dark mode"
             }
