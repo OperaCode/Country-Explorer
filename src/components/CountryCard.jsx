@@ -10,32 +10,26 @@ import {
   Globe2,
   Flag,
 } from "lucide-react";
+import useTheme from "../hooks/useTheme";
+import { ClipLoader } from "react-spinners";
+import useWikipediaSummary from "../hooks/wikiSummary";
+
 
 const CountryCard = () => {
   const { code } = useParams();
   const navigate = useNavigate();
   const [country, setCountry] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [funFact, setFunFact] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  // const [funFact, setFunFact] = useState("");
+  const { darkMode, toggleTheme } = useTheme();
+
+  // const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setDarkMode(savedTheme === "dark");
-
     const fetchCountry = async () => {
       try {
         const res = await axios.get(`https://restcountries.com/v3.1/alpha/${code}`);
         setCountry(res.data[0]);
-
-        const facts = [
-          "This country has no rivers!",
-          "It's home to the world's largest desert.",
-          "It has the world's highest waterfall.",
-          "Its flag has a unique meaning for each color.",
-          "This country spans two continents!",
-        ];
-        setFunFact(facts[Math.floor(Math.random() * facts.length)]);
       } catch (err) {
         console.error(err);
       } finally {
@@ -45,9 +39,14 @@ const CountryCard = () => {
     fetchCountry();
   }, [code]);
 
-  if (loading) {
+  // Fetch Wikipedia summary as fun fact
+  const { summary: funFact, loading: funFactLoading } = useWikipediaSummary(
+    country?.name.common
+  );
+
+  if (loading || funFactLoading) {
     return (
-      <div className={`flex justify-center items-center min-h-screen ${darkMode ? "bg-gradient-to-br from-gray-800 via-blue-900 to-gray-900 text-white" : "bg-gradient-to-br from-blue-100 via-white to-blue-300 text-gray-800"}`}>
+      <div className="flex justify-center items-center min-h-screen">
         <Loader2 size={50} className="animate-spin text-blue-600" />
       </div>
     );
@@ -112,7 +111,7 @@ const CountryCard = () => {
             </p>
           </div>
 
-          <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900 border-l-4 border-blue-400 rounded shadow-inner animate-slideInUp">
+          <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900 text-gray-300 border-l-4 border-blue-400 rounded shadow-inner animate-slideInUp">
             <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
               🌟 Fun Fact
             </h3>
