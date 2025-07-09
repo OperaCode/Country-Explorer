@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Globe, Sun, Moon, Search } from 'lucide-react';
-import ThemeToggle from '../components/ThemeToggle';
+
+import useTheme from '../hooks/useTheme';
 
 function LandingPage() {
   const navigate = useNavigate();
-  const [darkMode, setDarkMode] = useState(false);
+ 
+  const { darkMode, toggleTheme } = useTheme(); 
 
-  const toggleTheme = () => {
-    setDarkMode((prev) => !prev);
-    
-  };
-
+  
   return (
     <div
       className={`min-h-screen flex flex-col ${

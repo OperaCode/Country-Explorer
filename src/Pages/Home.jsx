@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import useTheme from '../hooks/useTheme';
+
 
 import {
   Globe,
@@ -23,22 +25,23 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  // const [darkMode, setDarkMode] = useState(false);
   const [region, setRegion] = useState("");
+  const { darkMode, toggleTheme } = useTheme(); 
 
   // Initialize theme from localStorage
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "light";
-    setDarkMode(savedTheme === "dark");
-  }, []);
+  // useEffect(() => {
+  //   const savedTheme = localStorage.getItem("theme") || "light";
+  //   setDarkMode(savedTheme === "dark");
+  // }, []);
 
   // Toggle theme and save to localStorage
-  const toggleTheme = () => {
-    const newTheme = !darkMode ? "dark" : "light";
-    setDarkMode(!darkMode);
-    localStorage.setItem("theme", newTheme);
+  // const toggleTheme = () => {
+  //   const newTheme = !darkMode ? "dark" : "light";
+  //   setDarkMode(!darkMode);
+  //   localStorage.setItem("theme", newTheme);
     
-  };
+  // };
 
   const handleRegionChange = async (e) => {
     const selectedRegion = e.target.value;
