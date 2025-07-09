@@ -9,6 +9,8 @@ import {
   Users,
   Globe2,
   Flag,
+  Moon,
+  Sun,
 } from "lucide-react";
 import useTheme from "../hooks/useTheme";
 import useWikipediaSummary from "../hooks/wikiSummary";
@@ -19,8 +21,6 @@ const CountryCard = () => {
   const [country, setCountry] = useState(null);
   const [loading, setLoading] = useState(true);
   const { darkMode, toggleTheme } = useTheme();
-
-
 
   useEffect(() => {
     const fetchCountry = async () => {
@@ -65,21 +65,39 @@ const CountryCard = () => {
     >
       {/* Header */}
       <header className="w-full py-6 px-6 flex justify-between items-center bg-white/10 backdrop-blur-md sticky top-0 z-10">
-        <button
-          onClick={() => navigate(-1)}
-          className="flex items-center cursor-pointer gap-2 px-4 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
-        >
-          <ArrowLeft size={20} /> Back
-        </button>
-        <h1 className="text-xl font-bold flex items-center gap-2">
-          <Globe size={20} className="text-blue-600" /> Country Details
+        <h1 className="md:text-2xl text-xl font-bold tracking-tight flex items-center gap-2">
+          <Globe
+            size={24}
+            className={darkMode ? "text-white" : "text-blue-600"}
+          />
+          Country Explorer
         </h1>
-        <div></div>
+        <nav className="flex md:gap-2">
+          <button
+            type="button"
+            onClick={() => navigate("/home")}
+            className="flex items-center cursor-pointer gap-1 md:gap-2 px-2 py-2 rounded-lg font-medium w-full  hover:bg-white/20 transition duration-300"
+          >
+            <ArrowLeft size={20}/>
+            Back
+          </button>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="flex items-center cursor-pointer gap-1 md:gap-2 px-2 py-2 rounded-lg font-medium  hover:bg-white/20 transition duration-300"
+            aria-label={
+              darkMode ? "Switch to light mode" : "Switch to dark mode"
+            }
+          >
+            {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            {darkMode ? "Light" : "Dark"}
+          </button>
+        </nav>
       </header>
 
       {/* Main content */}
       <main className="flex-grow flex items-center justify-center p-4 animate-fadeIn">
-        <div className="bg-white/30 dark:bg-gray-600/50 backdrop-blur-md rounded-2xl shadow-2xl max-w-xl w-full p-6 transform transition duration-500 hover:scale-[1.02]">
+        <div className="bg-zinc-600 dark:bg-gray-600/50 backdrop-blur-md rounded-2xl shadow-2xl max-w-xl w-full p-6 transform transition duration-500 hover:scale-[1.02]">
           <div className="flex flex-col items-center mb-6">
             <div className="bg-gray-100 dark:bg-gray-700 p-4 rounded-lg shadow-md">
               <img
@@ -126,7 +144,10 @@ const CountryCard = () => {
             </p>
           </div>
 
-          <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900 text-gray-100 border-l-4 border-blue-400 rounded shadow-inner animate-slideInUp">
+          <div 
+          className="mt-4 p-4 bg-gradient-to-r from-cyan-100 to-blue-100 dark:from-cyan-800 dark:to-blue-900 text-gray-800 dark:text-gray-100 border-l-4 border-cyan-400 rounded shadow-inner animate-slideInUp"
+          // className="mt-4 p-4 bg-blue-50 dark:bg-blue-900 text-gray-100 border-l-4 border-blue-400 rounded shadow-inner animate-slideInUp"
+          >
             <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
               🌟 Fun Fact
             </h3>
